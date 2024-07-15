@@ -1,0 +1,29 @@
+<!DOCTYPE html><table type="center">
+<html>
+<body>
+    <h1>Character Counter</h1>
+    <textarea id="textInput" rows="10" cols="50" placeholder="Enter your text here..."></textarea><br>
+    <button onclick="countCharacters()">Count Characters</button>
+    <p id="specialCharCountResult">Special Characters: 0</p>
+    <p id="numberCountResult">Numbers: 0</p>
+    <p id="capitalLetterCountResult">Capital Letters: 0</p>
+    <p id="smallLetterCountResult">Small Letters: 0</p>
+    <p id="spaceCountResult">Spaces: 0</p>
+    <script>
+        function countCharacters() {
+            let text = document.getElementById('textInput').value;
+            let specialCharCount = (text.match(/[^a-zA-Z0-9\s]/g) || []).length;
+            let numberCount = (text.match(/\d/g) || []).length;
+            let capitalLetterCount = (text.match(/[A-Z]/g) || []).length;
+            let smallLetterCount = (text.match(/[a-z]/g) || []).length;
+            let spaceCount = (text.match(/\s/g) || []).length;
+            document.getElementById('specialCharCountResult').innerText = "Special Characters: " + specialCharCount;
+            document.getElementById('numberCountResult').innerText = "Numbers: " + numberCount;
+            document.getElementById('capitalLetterCountResult').innerText = "Capital Letters: " + capitalLetterCount;
+            document.getElementById('smallLetterCountResult').innerText = "Small Letters: " + smallLetterCount;
+            document.getElementById('spaceCountResult').innerText = "Spaces: " + spaceCount;
+        }
+    </script>
+</body>
+</table>
+</html>
